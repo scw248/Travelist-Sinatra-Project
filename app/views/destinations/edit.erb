@@ -1,0 +1,13 @@
+<%= @destination.name %>
+<%= @destination.description %>
+<%= @destination.star_ranking %>
+<%= @destination.image %>
+
+<h3>Edit Destination</h3>
+<form action="/destinations/<%=@destination.id%>" method="post">
+  <input type="text" name="name" id="name" value="@destination.name">
+  <input type="text" name="description" id="description" value="@destination.description">
+  <input type="integer" name="star_ranking" id="star_ranking" value="@destination.star_ranking">
+  <input type="text" name="image" id="image" value="@destination.image">
+  <input type="submit" name="submit" value="submit">
+</form>

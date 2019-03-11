@@ -47,12 +47,15 @@ class DestinationsController < ApplicationController
     end
   end
 
-  post '/tweets/:id' do
-    if !params[:content].empty?
-      @tweet = Tweet.find_by(:id => params[:id])
-      @tweet.content = params[:content]
-      @tweet.save
-    erb :'/tweets/show_tweet'
+  post '/destinations/:id' do
+    if !params[:name].empty? || !params[:description].empty? || !params[:star_ranking].empty?
+      @destination = Destination.find_by(:id => params[:id])
+      @destination.name = params[:name]
+      @destination.description = params[:description]
+      @destination.star_ranking = params[:star_ranking]
+      @destination.image = params[:image]
+      @destinatino.save
+    erb :'/destinations/show'
     else
       @tweet = Tweet.find_by(:id => params[:id])
       redirect to "/tweets/#{@tweet.id}/edit"

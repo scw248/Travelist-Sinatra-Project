@@ -6,6 +6,6 @@ class CreateDestinations < ActiveRecord::Migration[5.2]
       t.integer :star_ranking, limit: 10
       t.string :image
       t.integer :user_id
+    end
   end
-end
 end

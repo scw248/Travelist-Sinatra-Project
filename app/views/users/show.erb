@@ -1,0 +1,8 @@
+<% @user.destinations.each do |destination| %>
+  <ul>
+    <li><%= destination.name %></li>
+    <li><%= destination.description %></li>
+    <li><%= destination.star_ranking %></li>
+    <li><%= destination.image %></li>
+  </ul>
+  <% end %>

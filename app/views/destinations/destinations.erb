@@ -1,0 +1,12 @@
+<h2>Welcome, <%= @user.username %></h2>
+
+<h3>ALL DESTINATIONS:</h3>
+
+<% Destination.all.each do |destination| %>
+<ul>
+<li><%= destination.name %></li>
+<li><%= destination.description %></li>
+<li><%= destination.star_ranking %></li>
+<li><%= destination.image %></li>
+</ul>
+<% end %>

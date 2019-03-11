@@ -57,17 +57,17 @@ class DestinationsController < ApplicationController
       @destinatino.save
     erb :'/destinations/show'
     else
-      @tweet = Tweet.find_by(:id => params[:id])
-      redirect to "/tweets/#{@tweet.id}/edit"
+      @destination = Destination.find_by(:id => params[:id])
+      redirect to "/destinations/#{@destination.id}/edit"
     end
   end
 
-  post '/tweets/:id/delete' do
-    @tweet = Tweet.find_by(:id => params[:id])
-    if logged_in? && @tweet.user_id == session[:user_id]
-    @tweet.destroy
+  post '/destinations/:id/delete' do
+    @destination = Destination.find_by(:id => params[:id])
+    if logged_in? && @destination.user_id == session[:user_id]
+    @destination.destroy
     else
-      redirect to '/login'
+      redirect to '/users/login'
     end
   end
 

@@ -2,11 +2,15 @@
 <%= @destination.description %>
 <%= @destination.star_ranking %>
 <%= @destination.image %>
+
 <br></br>
-<form class="" action="/destinations/<%=@destination.id%>/edit" method="post">
+
+<form action="/destinations/<%=@destination.id%>/edit" method="get">
   <input type="submit" name="edit_destination" value="Edit Destination">
 </form>
+
 <br></br>
-<form class="" action="/destinations/<%=@destination.id%>/delete" method="post">
+
+<form action="/destinations/<%=@destination.id%>/delete" method="post">
   <input type="submit" name="delete_destination" value="Remove Destination">
 </form>

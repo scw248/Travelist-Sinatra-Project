@@ -45,5 +45,20 @@ class DestinationsController < ApplicationController
     end
   end
 
+  post '/destinations/:id' do
+    if params[:name].empty? || params[:description].empty? || params[:star_ranking].empty? || params[:image].empty?
+      @destination = Destination.find_by_id(params[:id])
+      erb :'/destinations/edit'
+    else
+      @destination = Destination.find_by_id(params[:id])
+      @destination.name = params[:name]
+      @destination.description = params[:description]
+      @destination.star_ranking = params[:star_ranking]
+      @destination.image = params[:image]
+      @destination.save
+      erb :'/destinations/show'
+    end
+  end
+
 
 end

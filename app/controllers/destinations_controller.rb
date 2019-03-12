@@ -60,5 +60,15 @@ class DestinationsController < ApplicationController
     end
   end
 
+  post '/destinations/:id/delete' do
+    @destination = Destination.find_by_id(params[:id])
+
+    if logged_in? && @destination.user_id == session[:user_id]
+      @destination.destroy
+      erb :'destinations/all'
+    else
+      redirect to '/'
+    end
+  end
 
 end

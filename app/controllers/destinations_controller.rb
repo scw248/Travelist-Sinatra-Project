@@ -32,6 +32,7 @@ class DestinationsController < ApplicationController
   get '/destinations/:id' do
     if logged_in?
     @destination = Destination.find_by(:id => params[:id])
+    binding.pry
     erb :'/destinations/show'
     else
       redirect to '/users/login'
@@ -70,16 +71,5 @@ class DestinationsController < ApplicationController
       redirect to '/users/login'
     end
   end
-
-  helpers do
-    def logged_in?
-      !!current_user
-    end
-
-    def current_user
-      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-    end
-  end
-
 
 end

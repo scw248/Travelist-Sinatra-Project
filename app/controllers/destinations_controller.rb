@@ -1,17 +1,17 @@
 class DestinationsController < ApplicationController
 
+  # get '/destinations' do
+  #   if logged_in?
+  #   @user = User.find_by(:id => session[:user_id])
+  #   erb :'/destinations/destinations'
+  #   else
+  #     redirect to '/users/login'
+  #   end
+  # end
+  
   get '/destinations/new' do
     if logged_in?
     erb :'/destinations/new'
-    else
-      redirect to '/users/login'
-    end
-  end
-
-  get '/destinations' do
-    if logged_in?
-    @user = User.find_by(:id => session[:user_id])
-    erb :'/destinations/destinations'
     else
       redirect to '/users/login'
     end

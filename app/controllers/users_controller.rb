@@ -1,49 +1,61 @@
 class UsersController < ApplicationController
 
-  get '/signup' do
-    if session[:user_id]
-      redirect to '/users/show'
+  get '/users/:id' do
+    if !logged_in?
+      redirect '/login'
+    end
+
+    @user = User.find(params[:id])
+    if !@user.nil? && @user == current_user
+      erb :'users/show'
     else
-    erb :'/users/signup'
+      redirect '/login'
     end
   end
 
-  post '/signup' do
-    if params[:username].empty? || params[:email].empty? || params[:password].empty?
+  get '/signup' do
+    if !session[:user_id]
+      erb :'users/signup'
+    else
+      erb :'users/show'
+    end
+  end
+
+  post '/signup' do 
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect to '/signup'
     else
-    @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
-    session[:user_id] = @user.id
-    redirect to '/users/show'
+      @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
+      session[:user_id] = @user.id
+      erb :'users/show'
     end
   end
 
-  get '/login' do
-    if logged_in?
-      redirect to '/destinations/:id'
+  get '/login' do 
+    # @error_message = params[:error]
+    if !session[:user_id]
+      erb :'users/login'
     else
-    erb :'/users/login'
+      erb :'users/show'
     end
   end
 
   post '/login' do
-    @user = User.find_by(:username => params["username"])
-    session[:user_id] = @user.id 
-    redirect to '/users/show'
-  end
-#changed redirect to for all above that were destinations/destinations to users/show
-  get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
-    erb :'/users/show'
-  end
-
-  get '/logout' do
-    if logged_in?
-      session.clear
-      redirect to '/login'
+    @user = User.find_by(:username => params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = user.id
+      erb :'users/show'
     else
-      redirect to '/login'
+      redirect to '/signup'
     end
   end
 
+  get '/logout' do
+    if session[:user_id] != nil
+      session.destroy
+      redirect to '/login'
+    else
+      erb :'users/show'
+    end
+  end
 end

@@ -23,12 +23,12 @@ class DestinationsController < ApplicationController
     else
       @destination = Destination.create(:name => params["name"],:content => params["description"], :star_ranking => params["star_ranking"], :image => params["image"])
       @destination.user_id = session[:user_id]
-      binding.pry
       @destination.save
       
     erb :'/destinations/show'
     end
   end
+
 
   get '/destinations/:id' do
     if logged_in?
@@ -49,7 +49,7 @@ class DestinationsController < ApplicationController
   end
 
   post '/destinations/:id' do
-    if !params[:name].empty? || !params[:description].empty? || !params[:star_ranking].empty?
+    if !params[:name].empty? || !params[:description].empty? || !params[:star_ranking].empty? || !params[:image].empty?
       @destination = Destination.find_by(:id => params[:id])
       @destination.name = params[:name]
       @destination.description = params[:description]

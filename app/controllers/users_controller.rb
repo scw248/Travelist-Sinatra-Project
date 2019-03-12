@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if session[:user_id]
-      redirect to '/destinations'
+      redirect to '/users/show'
     else
     erb :'/users/signup'
     end
@@ -14,13 +14,13 @@ class UsersController < ApplicationController
     else
     @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
     session[:user_id] = @user.id
-    redirect to '/destinations/destinations'
+    redirect to '/users/show'
     end
   end
 
   get '/login' do
     if logged_in?
-      redirect to '/destinations/destinations'
+      redirect to '/destinations/:id'
     else
     erb :'/users/login'
     end
@@ -29,9 +29,9 @@ class UsersController < ApplicationController
   post '/login' do
     @user = User.find_by(:username => params["username"])
     session[:user_id] = @user.id 
-    redirect to '/destinations/destinations'
+    redirect to '/users/show'
   end
-
+#changed redirect to for all above that were destinations/destinations to users/show
   get '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
     erb :'/users/show'

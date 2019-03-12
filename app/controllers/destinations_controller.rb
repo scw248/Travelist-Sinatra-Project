@@ -23,6 +23,7 @@ class DestinationsController < ApplicationController
     else
       @destination = Destination.create(:name => params["name"],:content => params["description"], :star_ranking => params["star_ranking"], :image => params["image"])
       @destination.user_id = session[:user_id]
+      binding.pry
       @destination.save
       
     erb :'/destinations/show'
@@ -32,7 +33,6 @@ class DestinationsController < ApplicationController
   get '/destinations/:id' do
     if logged_in?
     @destination = Destination.find_by(:id => params[:id])
-    binding.pry
     erb :'/destinations/show'
     else
       redirect to '/users/login'

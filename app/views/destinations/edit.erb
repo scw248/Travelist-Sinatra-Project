@@ -1,16 +1,36 @@
 <%= @destination.name %>
+<br>
+<br>
 <%= @destination.description %>
+<br>
+<br>
 <%= @destination.star_ranking %>
+<br>
+<br>
 <%= @destination.image %>
+<br>
+<br>
 
 <h3>Edit Destination</h3>
 <form action="/destinations/<%=@destination.id%>" method="post">
   <label for='name'>Name</label>
   <input type="text" name="name" id="name">
   <label for='description'>Description</label>
-  <input type="text" name="description" id="description">
-  <label for='star_ranking'>Ranking (1-10)</label>
-  <input type="integer" name="star_ranking" id="star_ranking">
+  <input type="textarea" name="description" id="description" rows="10">
+  <label for='star_ranking'>Ranking</label>
+  <select name='star_ranking' id='star_ranking'>
+    <option value="0">Select Ranking</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
   <label for='image'>Image URL</label>
   <input type="text" name="image" id="image">
   <input type="submit" name="submit" value="Submit">

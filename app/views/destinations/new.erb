@@ -3,20 +3,10 @@
   <label for='name'>Name</label>
   <input type="text" name="name" id="name">
   <label for='description'>Description</label>
-  <input type="text" name="description" id="description">
-  <label for='star_ranking'>Ranking (1-10)</label>
-  <input type="integer" name="star_ranking" id="star_ranking">
-  <label for='image'>Image Link</label>
-  <input type="text" name="image" id="image">
-  <input type="submit" name="submit" value="Submit">
-</form>
-
-<%# changed action from destinations/destination.id to destinations/destinations %>
-
-<%# Can use below for select dropdown when time for styling %>
-<%# <div class="custom-select" style="width:200px;">
-  <select>
-    <option value="0">Select Ranking:</option>
+  <input type="textarea" name="description" id="description">
+  <label for='star_ranking'>Ranking</label>
+  <select name='star_ranking' id='star_ranking'>
+    <option value="0">Select Ranking</option>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -28,4 +18,8 @@
     <option value="9">9</option>
     <option value="10">10</option>
   </select>
-</div> %>
+  <label for='image'>Image Link</label>
+  <input type="text" name="image" id="image">
+  <input type="submit" name="submit" value="Submit">
+</form>
+

@@ -10,13 +10,30 @@
       <h1>Travelist</h1>
     </div>
      <% if logged_in? %>
+     <p>Welcome, <%=current_user.username %>!</p>
+
+        <a href="/users/<%=current_user.id%>"> View My Destinations! </a>
+        <br></br>
 
         <a href="/destinations/new"> Create New Destination! </a>
         <br></br>
 
-        <a href="/logout"> Log Out </a>
+        <%= yield %>
+        <h3>All Posted Destinations!</h3>
 
-        <p>Welcome, <%=current_user.username %>!</p>
+        <p><% Destination.all.each do |destination|%>
+            <%= destination.name %>
+            <br></br>
+            <%= destination.description %>
+            <br></br>
+            <%= destination.star_ranking %>
+            <br></br>
+            <%= destination.image %>
+            <br></br>
+          <% end %>
+
+        <br></br>
+        <a href="/logout"> Log Out </a>
 
       <% else %>
       <a href="/login"> Log In </a>

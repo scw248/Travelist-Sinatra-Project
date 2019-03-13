@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>TRAVELIST</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="description" content="Pinterest for Travelers">
     <meta name="keywords" content="Travel, Destinations, Trips">
@@ -12,7 +12,7 @@
   <body>
 
    
-
+    <header>
     <div align="center">
       <h1>Travelist</h1>
     
@@ -28,6 +28,7 @@
         </nav>
 
     </div> 
+    </header>
      <hr>   
 
     <% flash.keys.each do |type| %>
@@ -43,6 +44,7 @@
         <h3 align='center'>All Posted Destinations</h3>
 
         <% Destination.all.each do |destination|%>
+        <div class='card'>
             <%= destination.name %>
             <br>
             <p><%= destination.description %></p>
@@ -52,6 +54,7 @@
             <img src="<%= destination.image %>">
             <br>
           <% end %>
+        </div>
 
         <br>
         
@@ -62,6 +65,13 @@
       <a href="/signup">Sign Up</a>
       <%end %>
 
-        <%= yield %>
+        <%# <div align='center'> %>
+        <footer>
+        <nav>  
+          <a href="/users/<%=current_user.id%>">View My Destinations</a>
+          <a href="/destinations/new">Create New Destination</a>
+        </nav>
+        </footer>
+        <%# </div> %>
   </body>
 </html>

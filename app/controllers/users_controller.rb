@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:username].empty? || params[:email].empty? || params[:password].empty?
+      flash[:error] = 'You must fill out username, email, and password fields before signing up'
       erb :'users/signup'
     else
       @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])

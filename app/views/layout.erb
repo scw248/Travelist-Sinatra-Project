@@ -6,10 +6,15 @@
   </head>
   <body>
 
+   
+
     <div align="center">
       <h1>Travelist</h1>
     
      <% if logged_in? %>
+     <div align='right'>
+      <a href="/logout"> Log Out </a>
+    </div>
     
      <h3>Welcome, <%=current_user.username %>!</h3>
        
@@ -17,7 +22,15 @@
           <a href="/destinations/new">Create New Destination</a>
         </nav>
 
-   </div>    
+    </div>    
+
+    <% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+    <% end %>
+   
 
         <%= yield %>
         <h4>All Posted Destinations!</h4>
@@ -34,7 +47,6 @@
           <% end %>
 
         <br></br>
-        <a href="/logout"> Log Out </a>
 
       <% else %>
       <a href="/login"> Log In </a>

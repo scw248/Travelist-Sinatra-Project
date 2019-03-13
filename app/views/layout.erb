@@ -3,6 +3,11 @@
   <head>
     <title>TRAVELIST</title>
     <link rel="stylesheet" href="">
+    <meta charset="UTF-8">
+    <meta name="description" content="Pinterest for Travelers">
+    <meta name="keywords" content="Travel, Destinations, Trips">
+    <meta name="author" content="Stephen Wright">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
 
@@ -12,17 +17,18 @@
       <h1>Travelist</h1>
     
      <% if logged_in? %>
-     <div align='right'>
-      <a href="/logout"> Log Out </a>
-    </div>
     
      <h3>Welcome, <%=current_user.username %>!</h3>
-       
+        <nav>  
           <a href="/users/<%=current_user.id%>">View My Destinations</a>
           <a href="/destinations/new">Create New Destination</a>
+          <div align='right'>
+            <a href="/logout"> Log Out </a>
+          </div>
         </nav>
 
-    </div>    
+    </div> 
+     <hr>   
 
     <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
@@ -30,27 +36,29 @@
     <a href="#" class="close">&times;</a>
   </div>
     <% end %>
-   
 
         <%= yield %>
-        <h4>All Posted Destinations!</h4>
 
-        <p><% Destination.all.each do |destination|%>
+        <hr>
+        <h3 align='center'>All Posted Destinations</h3>
+
+        <% Destination.all.each do |destination|%>
             <%= destination.name %>
-            <br></br>
-            <%= destination.description %>
-            <br></br>
-            <%= destination.star_ranking %>
-            <br></br>
+            <br>
+            <p><%= destination.description %></p>
+            <br>
+            Ranking <%= destination.star_ranking %> 
+            <br>
             <img src="<%= destination.image %>">
-            <br></br>
+            <br>
           <% end %>
 
-        <br></br>
-
+        <br>
+        
+        
       <% else %>
       <a href="/login"> Log In </a>
-      <br></br>
+      <br>
       <a href="/signup">Sign Up</a>
       <%end %>
 

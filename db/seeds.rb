@@ -6,7 +6,7 @@ Destination.create(user_id: user1.id,
 name: "Honolulu", 
 description: "Honolulu, on the island of Oahu’s south shore, is capital of Hawaii and gateway to the U.S. island chain. The Waikiki neighborhood is its center for dining, nightlife and shopping, famed for its iconic crescent beach backed by palms and high-rise hotels, with volcanic Diamond Head crater looming in the distance.", 
 star_ranking: '10', 
-image: "https://ei.marketwatch.com/Multimedia/2018/01/10/Photos/ZH/MW-GB531_cuba_c_20180110150133_ZH.jpg?uuid=0e73ea68-f641-11e7-8957-9c8e992d421e")
+image:"https://www.gohawaii.com/sites/default/files/styles/image_gallery_bg_xl/public/hero-unit-images/Oahu-Honolulu-Aerial-Hero-2_1.jpg?itok=XX4tTNBw")
 Destination.create(user_id: user1.id,
 name: "Belize", 
 description: "Belize is a nation on the eastern coast of Central America, with Caribbean Sea shorelines to the east and dense jungle to the west. Offshore, the massive Belize Barrier Reef, dotted with hundreds of low-lying islands called cayes, hosts rich marine life. Belize’s jungle areas are home to Mayan ruins like Caracol.",

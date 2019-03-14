@@ -4,15 +4,16 @@
 <%= @destination.description %>
 <br>
 <br>
-<%= @destination.star_ranking %>
+<p>Ranking: <%= @destination.star_ranking %> </p>
 <br>
 <br>
-<%= @destination.image %>
+<img src="<%=@destination.image%>" alt="Location">
 <br>
 <br>
 
 <h3>Edit Destination</h3>
 <form action="/destinations/<%=@destination.id%>" method="post">
+<input id="hidden" type="hidden" name="_method" value="patch">
   <label for='name'>Name</label>
   <input type="text" name="name" id="name">
   <label for='description'>Description</label>

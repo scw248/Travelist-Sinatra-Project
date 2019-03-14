@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect to '/destinations/all'
     else
+      flash.now[:error] = 'You must login or fill out username, email, and password fields to sign up'
       erb :'users/login'
     end
   end
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect to '/destinations/all'
     else
+      flash.now[:error] = 'You must login or fill out username, email, and password fields to sign up'
       erb :'users/login'
     end  
   end
@@ -23,13 +25,14 @@ class UsersController < ApplicationController
     if logged_in?
       redirect to '/destinations/all'
     else
+      flash.now[:error] = 'You must login or fill out username, email, and password fields to sign up'
       erb :'users/signup'
     end
   end
 
   post '/signup' do
     if params[:username].empty? || params[:email].empty? || params[:password].empty?
-      flash.now[:error] = 'You must fill out username, email, and password fields before signing up'
+      flash.now[:error] = 'You must login or fill out username, email, and password fields to sign up'
       erb :'users/signup'
     else
       @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
@@ -47,10 +50,10 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
-    erb :'/users/profile'
-  end
+  # get '/users/:slug' do
+  #   @user = User.find_by_slug(params[:slug])
+  #   erb :'/users/profile'
+  # end
 
   get '/logout' do
     if session[:user_id] != nil

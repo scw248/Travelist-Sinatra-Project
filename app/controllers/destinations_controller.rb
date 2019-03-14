@@ -19,6 +19,7 @@ class DestinationsController < ApplicationController
 
   post '/destinations/destinations' do
     if params[:name].empty? || params[:description].empty? || params[:star_ranking].empty? || params[:image].empty?
+      flash.now[:warning] = 'Please fill out all destination fields'
       erb :'destinations/new'
     else
       @destination = Destination.create(:name => params[:name], :description => params[:description], :star_ranking => params[:star_ranking], :image => params[:image])
@@ -32,6 +33,7 @@ class DestinationsController < ApplicationController
       @destination = Destination.find_by_id(params[:id])
       erb :'/destinations/show'
     else
+      flash.now[:error] = 'You must login or fill out username, email, and password fields to sign up'
       redirect to '/'
     end
   end
@@ -41,6 +43,7 @@ class DestinationsController < ApplicationController
       @destination = Destination.find_by_id(params[:id])
       erb :'/destinations/edit'
     else
+      flash.now[:error] = 'You must login or fill out username, email, and password fields to sign up'
       redirect to '/'
     end
   end
@@ -48,6 +51,7 @@ class DestinationsController < ApplicationController
   post '/destinations/:id' do
     if params[:name].empty? || params[:description].empty? || params[:star_ranking].empty? || params[:image].empty?
       @destination = Destination.find_by_id(params[:id])
+      flash.now[:warning] = 'Please fill out all destination fields'
       erb :'/destinations/edit'
     else
       @destination = Destination.find_by_id(params[:id])

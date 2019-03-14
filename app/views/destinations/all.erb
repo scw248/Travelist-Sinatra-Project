@@ -1,14 +1,18 @@
 
 <p><% Destination.all.each do |destination|%>
+      <div class="grid-container">
         <div class='card'>
+            <div class='bg-img'>
             <img src="<%=destination.image%>" alt="Location">
+            </div>
             <div class="container">
             <h4><b><%= destination.name %></b></h4> 
             <p><%= destination.description %></p> 
-            <p>Ranking<%= destination.star_ranking %></p> 
+            <p>Ranking: <%= destination.star_ranking %></p> 
             <% end %>
             </div>
         </div>
+      </div>
          
           
         

@@ -1,10 +1,16 @@
 <% @user.destinations.each do |destination| %>
-   <%= destination.name %>
-  <br>
-  <%= destination.description %>
-  <br>
-  <%= destination.star_ranking %>
-  <br>
-  <img src="<%= destination.image %>">
-  <br>
-  <% end %>
+      <div class='card'>
+            <%= destination.name %>
+            <br>
+            <br>
+            <%= destination.description %>
+            <br>
+            <br>
+            Ranking: <%= destination.star_ranking %>
+            <br>
+            <br>
+            <%= destination.image %>
+            <br>
+            <br>
+          <% end %>
+        </div>

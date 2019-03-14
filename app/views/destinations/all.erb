@@ -1,10 +1,17 @@
 
 <p><% Destination.all.each do |destination|%>
+        <div class='card'>
             <%= destination.name %>
+            <br>
             <br>
             <%= destination.description %>
             <br>
-            <%= destination.star_ranking %>
+            <br>
+            Ranking: <%= destination.star_ranking %>
+            <br>
             <br>
             <%= destination.image %>
+            <br>
+            <br>
           <% end %>
+        </div>

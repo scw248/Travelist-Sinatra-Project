@@ -23,3 +23,22 @@
   <input type="submit" name="submit" value="Submit">
 </form>
 
+<hr>
+
+<% current_user.destinations.each do |destination| %>
+      <div class='card'>
+            <%= destination.name %>
+            <br>
+            <br>
+            <%= destination.description %>
+            <br>
+            <br>
+            Ranking: <%= destination.star_ranking %>
+            <br>
+            <br>
+            <%= destination.image %>
+            <br>
+            <br>
+          <% end %>
+        </div>
+

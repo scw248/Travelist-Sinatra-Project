@@ -30,10 +30,14 @@
       <a href="/login">Log In</a>
        <br>
       <a href="/signup">Sign Up</a>
-      <% end %>
-    <div>  
-      <hr>   
+      <% end %> 
+      <hr> 
 
+      <% flash.keys.each do |type| %>
+      <div data-alert class="flash <%= type %> alert-box radius">
+        <%= flash[type] %>
+      </div>
+    <% end %> 
           <%= yield %>
 
 

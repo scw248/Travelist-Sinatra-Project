@@ -1,7 +1,7 @@
 
 <p><% Destination.all.each do |destination|%>
         <div class='card'>
-            <img src="#{destination.image}" alt="Location" style="width:100%">
+            <img src="<%=destination.image%>" alt="Location">
             <div class="container">
             <h4><b><%= destination.name %></b></h4> 
             <p><%= destination.description %></p> 

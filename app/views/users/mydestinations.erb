@@ -1,16 +1,11 @@
 <% @user.destinations.each do |destination| %>
-      <div class='card'>
-            <%= destination.name %>
-            <br>
-            <br>
-            <%= destination.description %>
-            <br>
-            <br>
-            <p>Ranking: <%= @destination.star_ranking %> </p>
-            <br>
-            <br>
-            <img src="<%=destination.image%>" alt="Location">
-            <br>
-            <br>
-          <% end %>
-        </div>
+    <span class='card'>
+      <img src="<%=destination.image%>" alt="Location">
+      <span class=container>
+        <h4><b><%= destination.name %></b></h4> 
+        <p><%= destination.description %></p> 
+        <p>Ranking: <%= destination.star_ranking %></p> 
+        <hr>
+      </span>
+      <% end %>
+    </span>

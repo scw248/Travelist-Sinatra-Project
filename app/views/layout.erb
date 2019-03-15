@@ -11,25 +11,52 @@
   </head>
   <body>
 
-    <div class="center">
+    <div class="header">
      <h1>Travelist</h1>
-    
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+      
      <% if logged_in? %>
 
       <h3>Welcome, <%=current_user.username %>!</h3>
-      <div id="right">
+      
         <a href="/login">HomePage</a>
-      </div>
+  
           <nav>  
             <a href="/users/<%=current_user.id%>">View My Destinations</a>
             <a href="/destinations/new">Create New Destination</a>
-            <a href="/logout"> Log Out </a>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="right">
+            <a href="/logout"> Log Out  </a>
+            
+            </div>
           </nav>
+          
 
       <% else %>
       <a href="/login">Log In</a>
        <br>
       <a href="/signup">Sign Up</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      
       <% end %> 
       <hr> 
 
@@ -37,7 +64,8 @@
       <div data-alert class="flash-<%= type %>-alert-box-radius">
         <%= flash[type] %>
       </div>
-    <% end %> 
+    <% end %>
+  </div> 
           <%= yield %>
 
 

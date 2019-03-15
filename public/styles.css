@@ -6,58 +6,37 @@ h1 {
   color: green;
 }
 
-.center {
+.header {
   text-align: center;
+  background-image: url("https://travelzones.net/wp-content/uploads/2018/12/banner.jpg");
   /* display: flex; */
   /* justify-content: center; */
 }
 
 #right {
-  position: fixed;
+  position: absolute;
   top: 0px;
-  right: 0px;
+  right: 10px;
   /* display: flex; */
   /* justify-content: flex-end; */
 }
 
 .card {
-  border: 1px solid #d3d3d3;
-  border-radius: .25rem;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
 }
 
-.bg-img {
-  background-size: cover;
-  min-height: 180px;
-  background-position: center;
-  background-color: #ccc;
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.content {
-  padding: 15px;
+img {
+    height: 200px;
+    width: 50%;
+    border-radius: 5px 5px 0 0;
 }
-
-
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 30vw 1fr 15vw;
-  grid-template-columns: [col1-start] 30vw [col2-start] 1fr [col3-start] 15vw;
-  grid-template-rows: 10vh 1fr 10vh;
-  grid-template-rows: [row1-start] 10vh [row2-start] 1fr [row3-start] 10vh;
-  grid-gap: 20px;
-}
-
-/* button {
-  background-color: transparent;
-  border: 1px solid #2196F3;
-  padding: .5rem 1rem;
-  cursor: pointer;
-  border-radius: .25rem;
-} */
-
-/* img {
-  width: 500px;
-} */
 
 a:link {
   color: blue;

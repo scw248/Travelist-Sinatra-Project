@@ -1,9 +1,6 @@
-/* body {
-  background-image: url("https://cdn.newsapi.com.au/image/v1/53cf3216af89accadaa89d355625a1ae?width=1024");
-} */
-
 h1 {
   color: green;
+  font-family: 'Times New Roman', Times, serif
 }
 
 .header {
@@ -15,8 +12,8 @@ h1 {
 
 #right {
   position: absolute;
-  top: 0px;
-  right: 10px;
+  top: 30px;
+  right: 30px;
   /* display: flex; */
   /* justify-content: flex-end; */
 }

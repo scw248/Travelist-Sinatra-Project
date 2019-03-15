@@ -2,13 +2,13 @@
 <p><% Destination.all.each do |destination|%>
         <span class='card'>
             <img src="<%=destination.image%>" alt="Location">
-            <span class="container">
+            <span class=container>
             <h4><b><%= destination.name %></b></h4> 
             <p><%= destination.description %></p> 
             <p>Ranking: <%= destination.star_ranking %></p> 
             <hr>
-            <% end %>
             </span>
+            <% end %>
         </span>
       
          

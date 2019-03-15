@@ -14,10 +14,7 @@
     <div class="header">
      <br>
      <h1><b>TRAVELIST</b></h1>
-     <br>
-     <br>
-     <br>
-     <br>
+
      <br>
       
      <% if logged_in? %>
@@ -29,11 +26,6 @@
           <nav>  
             <a href="/users/<%=current_user.id%>">View My Destinations</a>
             <a href="/destinations/new">Create New Destination</a>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <br>
             <br>
             <div id="right">
@@ -48,11 +40,7 @@
       <a href="/signup">Sign Up</a>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+       
       
       <% end %> 
       <hr> 
@@ -62,13 +50,13 @@
         <%= flash[type] %>
       </div>
     <% end %>
-  </div> 
+  
           <%= yield %>
 
 
           <hr>
        
 
-      
+  </div>    
   </body>
 </html>

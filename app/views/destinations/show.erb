@@ -1,12 +1,12 @@
-<span class='card'>
+<br>
+<div class='card'>
   <img src="<%=@destination.image%>" alt="Location">
-  <span class=container>
     <h4><b><%= @destination.name %></b></h4> 
     <p><%= @destination.description %></p> 
     <p>Ranking: <%= @destination.star_ranking %></p> 
     <hr>
-  </span>
-</span>
+ 
+
 
 <form action="/destinations/<%=@destination.id%>/edit" method="get">
   <input type="submit" name="edit_destination" value="Edit Destination">
@@ -17,3 +17,5 @@
 <form action="/destinations/<%=@destination.id%>/delete" method="post">
   <input type="submit" name="delete_destination" value="Remove Destination">
 </form>
+<br>
+ </div>

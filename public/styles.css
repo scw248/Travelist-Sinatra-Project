@@ -3,6 +3,10 @@ h1 {
   font-family: fantasy
 }
 
+h3 {
+  color: black;
+}
+
 .header {
   text-align: center;
   background: #648880;
@@ -15,30 +19,23 @@ h1 {
   right: 30px;
 }
 
-#index{
-  background-image: url('https://cdn.newsapi.com.au/image/v1/53cf3216af89accadaa89d355625a1ae?width=1024')
+img {
+  height: 200px;
+  width: 50%;
+  border-radius: 5px 5px 0 0;
+  align: center
 }
 
 .card {
+  text-align: center;
+  justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px; 
-  
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.container {
-  text-align: center;
-  column-width: 2em
-}
-
-img {
-    height: 200px;
-    width: 40%;
-    border-radius: 5px 5px 0 0;
 }
 
 a:link {
@@ -50,11 +47,13 @@ a:visited {
 }
 
 .flash-error-alert-box-radius {
-  color: red
+  color: red;
+  text-align: center
 }
 
 .flash-warning-alert-box-radius {
-  color: red
+  color: red;
+  text-align: center
 }
 
 .button {

@@ -35,28 +35,22 @@
           
 
       <% else %>
-      <a href="/login">Log In</a>
-       <br>
-      <a href="/signup">Sign Up</a>
-        <br>
-        <br>
-       
-      
+        <a href="/login">Log In</a>
+          <br>
+        <a href="/signup">Sign Up</a>
+          <br>
+          <br>
       <% end %> 
-      <hr> 
-
+      
+    </div>
       <% flash.keys.each do |type| %>
       <div data-alert class="flash-<%= type %>-alert-box-radius">
+        <br>
         <%= flash[type] %>
       </div>
-    <% end %>
-  
-          <%= yield %>
+      <% end %>
+    
+          <%= yield %>     
 
-
-          <hr>
-       
-
-  </div>    
   </body>
 </html>

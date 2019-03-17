@@ -1,3 +1,4 @@
+<div class='card'>
 <h3>Add New Destination!</h3>
 <form action="/destinations/destinations" method="post">
   <label for='name'>Name</label>
@@ -25,16 +26,13 @@
 
 <hr>
 
-<p>My Current Destinations</p>
+<h3><b>My Current Destinations</b></h3>
 <% current_user.destinations.each do |destination| %>
-    <span class='card'>
       <img src="<%=destination.image%>" alt="Location">
-      <span class=container>
         <h4><b><%= destination.name %></b></h4> 
         <p><%= destination.description %></p> 
         <p>Ranking: <%= destination.star_ranking %></p> 
         <hr>
-      </span>
     <% end %>
-    </span>
+    </div>
 

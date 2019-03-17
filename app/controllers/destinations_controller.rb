@@ -19,7 +19,7 @@ class DestinationsController < ApplicationController
 
   post '/destinations/destinations' do
     if params[:name].empty? || params[:description].empty? || params[:star_ranking].empty? || params[:image].empty?
-      flash.now[:warning] = 'Please fill out all destination fields'
+      flash.now[:warning] = 'Oops, please fill out all destination fields'
       erb :'destinations/new'
     else
       @destination = Destination.create(:name => params[:name], :description => params[:description], :star_ranking => params[:star_ranking], :image => params[:image])
@@ -44,7 +44,7 @@ class DestinationsController < ApplicationController
       @destination = Destination.find_by_id(params[:id])
       erb :'/destinations/edit'
     else
-      flash.now[:error] = 'You must login or fill out username, email, and password fields to sign up'
+      flash.now[:error] = 'Hmm, that did not work.  Please login or fill out username, email, and password fields to sign up'
       erb :'destinations/all'
     end
   end
@@ -52,7 +52,7 @@ class DestinationsController < ApplicationController
   patch '/destinations/:id' do
     if params[:name].empty? || params[:description].empty? || params[:star_ranking].empty? || params[:image].empty?
       @destination = Destination.find_by_id(params[:id])
-      flash.now[:warning] = 'Please fill out all destination fields'
+      flash.now[:warning] = 'Oops, please fill out all destination fields'
       erb :'/destinations/edit'
     else
       @destination = Destination.find_by_id(params[:id])
@@ -67,8 +67,8 @@ class DestinationsController < ApplicationController
 
   post '/destinations/:id/delete' do
     @destination = Destination.find_by_id(params[:id])
-    binding.pry
-    if logged_in? && @destination.user_id == session[:user_id]
+    
+    if @destination.user_id == current_user.id && logged_in?
       @destination.destroy
       erb :'destinations/all'
     else

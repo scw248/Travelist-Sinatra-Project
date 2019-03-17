@@ -1,12 +1,12 @@
-  <span class='card'>
+  <br>
+  <div class='card'>
     <img src="<%=@destination.image%>" alt="Location">
-    <span class=container>
       <h4><b><%= @destination.name %></b></h4> 
         <p><%= @destination.description %></p> 
         <p>Ranking: <%= @destination.star_ranking %></p> 
         <hr>
-    </span>
-  </span>
+    
+
 
 <h3>Edit Destination</h3>
 <form action="/destinations/<%=@destination.id%>" method="post">
@@ -33,3 +33,5 @@
   <input type="text" name="image" id="image">
   <input type="submit" name="submit" value="Submit">
 </form>
+<br>
+</div>

@@ -4,7 +4,7 @@ To use this app, just clone, run rake db:migrate and then run shotgun. Everythin
 
 ## Demo
 
- https://youtu.be/vJZ8DQq867M
+https://youtu.be/8euWqGpLgIA
 
 ## Description
 Travelist is a travelers take on Pinterest.  A user can sign up or log in to view a network of travelers' added destinations, and can create, edit, and delete their own.
